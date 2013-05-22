@@ -23,7 +23,11 @@ function PageSlider(container) {
         if (state === stateHistory[l-2]) {
             stateHistory.pop();
             this.slidePageFrom(page, 'left');
-        } else {
+        } else if (state === "") {
+            stateHistory.push(state);
+            this.slidePageFrom(page, 'left');
+        }
+        else {
             stateHistory.push(state);
             this.slidePageFrom(page, 'right');
         }
